@@ -6,6 +6,7 @@ import BooksIcon from "../Icons/Books";
 import TeachersIcons from "../Icons/Teachers";
 import SideLogo from "./SideLogo";
 import { useLocation } from "react-router-dom";
+import HomeIcon from "../Icons/Home";
 
 export default function SideMenu() {
   const { pathname } = useLocation();
@@ -21,7 +22,9 @@ export default function SideMenu() {
             text="General"
             selected={pathname === "/"}
             link={"/"}
-          />
+          >
+            <HomeIcon />
+          </SideMenuElement>
 
           <SideMenuElement
             text="Estudiantes"
