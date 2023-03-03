@@ -1,9 +1,9 @@
 import React from "react";
 import GeneralItem from "./GeneralItem";
-import PeopleIcon from "../Icons/People";
-import BooksIcon from "../Icons/Books";
-import TeachersIcons from "../Icons/Teachers";
-import PersonIcon from "../Icons/Person";
+import PeopleIcon from "../../components/Icons/People";
+import BooksIcon from "../../components/Icons/Books";
+import TeachersIcons from "../../components/Icons/Teachers";
+import PersonIcon from "../../components/Icons/Person";
 
 export default function General() {
   return (
