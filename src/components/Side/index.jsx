@@ -39,10 +39,6 @@ export default function SideMenu() {
             <BooksIcon />
           </SideMenuElement>
 
-          <SideMenuElement text="Profes">
-            <TeachersIcons />
-          </SideMenuElement>
-
           <SideMenuElement
             text="Estudiante"
             selected={urlPattern.test(pathname)}

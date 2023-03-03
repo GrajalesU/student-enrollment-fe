@@ -43,12 +43,6 @@ export default function General() {
               <PersonIcon />
             </GeneralItem>
             <GeneralItem
-              title="Ver profes"
-              description="Miremos cuáles son los profesores que te educarán este semestre"
-            >
-              <TeachersIcons />
-            </GeneralItem>
-            <GeneralItem
               title="Ver cursos"
               description="Descubre de los cursos ofertados para este semestre"
               link={"/subjects"}

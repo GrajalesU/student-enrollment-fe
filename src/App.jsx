@@ -4,6 +4,7 @@ import Layout from "./components/Layout";
 import Students from "./Pages/Students";
 import Subjects from "./Pages/Subjects";
 import Student from "./Pages/Student";
+import Teachers from "./Pages/Teachers";
 
 function App() {
   return (
