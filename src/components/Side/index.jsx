@@ -5,17 +5,28 @@ import PersonIcon from "../Icons/Person";
 import BooksIcon from "../Icons/Books";
 import TeachersIcons from "../Icons/Teachers";
 import SideLogo from "./SideLogo";
+import { useLocation } from "react-router-dom";
 
 export default function SideMenu() {
+  const { pathname } = useLocation();
+
   return (
-    <div className="flex h-screen grow max-w-[400px] flex-col justify-between border-r bg-white">
+    <div className="flex h-screen  flex-col justify-between border-r bg-white">
       <div className="px-4 py-6">
         <SideLogo />
 
         <nav aria-label="Main Nav" className="mt-6 flex flex-col space-y-1">
-          <SideMenuElement text="General" selected />
+          <SideMenuElement
+            text="General"
+            selected={pathname === "/"}
+            link={"/"}
+          />
 
-          <SideMenuElement text="Estudiantes">
+          <SideMenuElement
+            text="Estudiantes"
+            link={"/students"}
+            selected={pathname === "/students"}
+          >
             <PeopleIcon />
           </SideMenuElement>
 
