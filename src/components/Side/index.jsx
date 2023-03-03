@@ -9,6 +9,7 @@ import { useLocation } from "react-router-dom";
 
 export default function SideMenu() {
   const { pathname } = useLocation();
+  const urlPattern = /(\/)students(\/)[0-9]+$/gm;
 
   return (
     <div className="flex h-screen  flex-col justify-between border-r bg-white">
@@ -30,10 +31,6 @@ export default function SideMenu() {
             <PeopleIcon />
           </SideMenuElement>
 
-          <SideMenuElement text="Estudiante">
-            <PersonIcon />
-          </SideMenuElement>
-
           <SideMenuElement
             text="Materias"
             link={"/subjects"}
@@ -44,6 +41,13 @@ export default function SideMenu() {
 
           <SideMenuElement text="Profes">
             <TeachersIcons />
+          </SideMenuElement>
+
+          <SideMenuElement
+            text="Estudiante"
+            selected={urlPattern.test(pathname)}
+          >
+            <PersonIcon color="#b0b0b0" />
           </SideMenuElement>
         </nav>
       </div>
