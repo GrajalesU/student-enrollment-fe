@@ -34,7 +34,11 @@ export default function SideMenu() {
             <PersonIcon />
           </SideMenuElement>
 
-          <SideMenuElement text="Materias">
+          <SideMenuElement
+            text="Materias"
+            link={"/subjects"}
+            selected={pathname === "/subjects"}
+          >
             <BooksIcon />
           </SideMenuElement>
 

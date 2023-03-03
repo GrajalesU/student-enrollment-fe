@@ -51,6 +51,7 @@ export default function General() {
             <GeneralItem
               title="Ver cursos"
               description="Descubre de los cursos ofertados para este semestre"
+              link={"/subjects"}
             >
               <BooksIcon />
             </GeneralItem>
