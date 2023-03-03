@@ -26,10 +26,7 @@ export default function Students() {
           </thead>
 
           <tbody className="divide-y divide-gray-200">
-            {loading && <LoadingElement loading />}
-            {students?.map(({ id, name }) => (
-              <TableElement key={id} id={id} name={name} />
-            ))}
+            <ContentHandler loading={loading} data={students} />
           </tbody>
         </table>
       </div>
@@ -37,12 +34,25 @@ export default function Students() {
   );
 }
 
+function ContentHandler({ loading, data }) {
+  if (loading) return <LoadingElement />;
+  else
+    return (
+      <>
+        {loading && <LoadingElement />}
+        {data?.map(({ id, name }) => (
+          <TableElement key={id} id={id} name={name} />
+        ))}
+      </>
+    );
+}
+
 function LoadingElement() {
   return (
     <>
-      <TableElement />
-      <TableElement />
-      <TableElement />
+      <TableElement loading />
+      <TableElement loading />
+      <TableElement loading />
     </>
   );
 }
