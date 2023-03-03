@@ -1,5 +1,5 @@
 import React from "react";
-import SubjectElement from "./SubjectElement";
+import SubjectElement from "../../components/SubjectElement";
 import useFetch from "../../hooks/useFetch";
 
 export default function Subjects() {
