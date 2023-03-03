@@ -32,6 +32,7 @@ export default function General() {
             <GeneralItem
               title="Ver estudiantes"
               description="Entérate de quiénes están en este semestre académico."
+              link={"/students"}
             >
               <PeopleIcon />
             </GeneralItem>
