@@ -39,6 +39,7 @@ export default function General() {
             <GeneralItem
               title="Ver mi matricula"
               description="Aquí puedes ver las materias que vas a ver este semestre."
+              link={"/me"}
             >
               <PersonIcon />
             </GeneralItem>
