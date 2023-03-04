@@ -8,6 +8,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import Me from "./Pages/Me";
 import { AuthProvider } from "./Context/student";
 import Login from "./Pages/Login";
+import Error404 from "./components/Error404";
 
 function App() {
   return (
@@ -28,6 +29,15 @@ function App() {
             }
           />
         </Route>
+        <Route
+          path="*"
+          element={
+            <Error404
+              message={"On no, no encontramos al estudiante que buscas :c"}
+              link="/"
+            />
+          }
+        />
       </Routes>
     </AuthProvider>
   );
