@@ -1,4 +1,5 @@
 import { useState } from "react";
+import SubjectElement from "../../components/SubjectElement";
 
 export default function SubjectHandler({ id, name, selected, handler }) {
   const [newSelection, setNewSelection] = useState(selected || false);

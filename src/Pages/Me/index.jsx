@@ -45,7 +45,7 @@ export default function Me() {
         <div className="max-w-screen-2xl px-4 py-8 sm:py-12 sm:px-6 lg:py-16 lg:px-8">
           <h2 className="text-3xl font-bold sm:text-4xl">{data?.name}</h2>
           <h3 className="text-xl sm:text-2xl">
-            Materias que cursarás este semestre:
+            Elige las materias que cursarás este semestre:
           </h3>
         </div>
         <ul className="mt-4 px-4 py-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
