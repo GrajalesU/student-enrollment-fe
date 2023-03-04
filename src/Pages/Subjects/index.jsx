@@ -20,7 +20,7 @@ export default function Subjects() {
           </p>
         </header>
 
-        <ul className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <ul className="mt-4 mx-auto grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {subjects?.map((subject) => (
             <SubjectElement {...subject} key={subject.id} />
           ))}
