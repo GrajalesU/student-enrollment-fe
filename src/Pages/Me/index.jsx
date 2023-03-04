@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import SubjectElement from "../../components/SubjectElement";
 import useAuth from "../../hooks/useAuth";
 import useFetch from "../../hooks/useFetch";
+import { useNavigate } from "react-router-dom";
 
 export default function Me() {
   const { user } = useAuth();
+  const navigate = useNavigate();
   const { data } = useFetch(`http://localhost:5000/students/${user}`);
   const { data: data2 } = useFetch("http://localhost:5000/subjects");
   const subjects = data2?.rows;
@@ -27,7 +29,10 @@ export default function Me() {
       },
       body: JSON.stringify({ id: user, subjects: filteredSubjects }),
     })
-      .then((response) => console.log(response))
+      .then((response) => {
+        console.log(response);
+        return navigate("/students");
+      })
       .catch((error) => {
         console.error("Ocurrió un error en la petición", error);
       });
@@ -36,7 +41,7 @@ export default function Me() {
   if (data && selectedSubjects)
     return (
       <section className="min-h-screen">
-        <div className="max-w-screen-xl px-4 py-8 sm:py-12 sm:px-6 lg:py-16 lg:px-8">
+        <div className="max-w-screen-2xl px-4 py-8 sm:py-12 sm:px-6 lg:py-16 lg:px-8">
           <h2 className="text-3xl font-bold sm:text-4xl">{data?.name}</h2>
           <h3 className="text-xl sm:text-2xl">
             Materias que cursarás este semestre:
