@@ -9,14 +9,15 @@ export default function Student() {
   const { data, error, loading } = useFetch(
     `${import.meta.env.VITE_API}/students/${id}`
   );
-  if (error)
+  if (error) {
     return (
       <Error404
         message={"On no, no encontramos al estudiante que buscas :c"}
         link="/"
       />
     );
-  if (data)
+  }
+  if (data) {
     return (
       <section className="min-h-screen">
         <div className="max-w-screen-xl px-4 py-8 sm:py-12 sm:px-6 lg:py-16 lg:px-8">
@@ -36,4 +37,5 @@ export default function Student() {
         </ul>
       </section>
     );
+  }
 }

@@ -44,8 +44,9 @@ export default function Students() {
 }
 
 function ContentHandler({ loading, data }) {
-  if (loading) return <LoadingElement />;
-  else
+  if (loading) {
+    return <LoadingElement />;
+  } else {
     return (
       <>
         {loading && <LoadingElement />}
@@ -54,6 +55,7 @@ function ContentHandler({ loading, data }) {
         ))}
       </>
     );
+  }
 }
 
 function LoadingElement() {

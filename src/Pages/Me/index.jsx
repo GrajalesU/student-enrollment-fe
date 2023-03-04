@@ -1,14 +1,15 @@
-import React, { useState } from "react";
-import SubjectElement from "../../components/SubjectElement";
+import React from "react";
 import useAuth from "../../hooks/useAuth";
 import useFetch from "../../hooks/useFetch";
 import { useNavigate } from "react-router-dom";
+import SubjectHandler from "./SubjectHandler";
 
 export default function Me() {
   const { user } = useAuth();
   const navigate = useNavigate();
   const { data } = useFetch(`${import.meta.env.VITE_API}/students/${user}`);
   const { data: data2 } = useFetch(`${import.meta.env.VITE_API}/subjects`);
+
   const subjects = data2?.rows;
   const selectedSubjects = data?.subjects.map(
     (subject) => subject["student_subject"].subjectId
@@ -22,7 +23,7 @@ export default function Me() {
       return !prevSubjects.includes(elemento);
     });
 
-    fetch("${import.meta.env.VITE_API}/enroll", {
+    fetch(`${import.meta.env.VITE_API}/enroll`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -38,7 +39,7 @@ export default function Me() {
       });
   };
 
-  if (data && selectedSubjects)
+  if (data && selectedSubjects) {
     return (
       <section className="min-h-screen">
         <div className="max-w-screen-2xl px-4 py-8 sm:py-12 sm:px-6 lg:py-16 lg:px-8">
@@ -69,27 +70,5 @@ export default function Me() {
         </button>
       </section>
     );
+  }
 }
-
-const SubjectHandler = ({ id, name, selected, handler }) => {
-  const [newSelection, setNewSelection] = useState(selected);
-  const handleClick = () => {
-    setNewSelection(true);
-    handler(id);
-  };
-  if (newSelection)
-    return (
-      <button
-        onClick={handleClick}
-        className="rounded-md border p-1 border-indigo-600"
-      >
-        <SubjectElement id={id} name={name} />
-      </button>
-    );
-  else
-    return (
-      <button onClick={handleClick}>
-        <SubjectElement id={id} name={name} />
-      </button>
-    );
-};
