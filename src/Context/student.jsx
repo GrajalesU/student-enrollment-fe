@@ -19,7 +19,7 @@ export function AuthProvider({ children }) {
 
   let signIn = (newStudent, callback) => {
     return fakeAuthProvider.signIn(() => {
-      setUser(newUser);
+      setUser(newStudent);
       callback();
     });
   };
