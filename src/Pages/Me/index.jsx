@@ -8,7 +8,7 @@ export default function Me() {
   const { user } = useAuth();
   const navigate = useNavigate();
   const { data } = useFetch(`${import.meta.env.VITE_API}/students/${user}`);
-  const { data: data2 } = useFetch("${import.meta.env.VITE_API}/subjects");
+  const { data: data2 } = useFetch(`${import.meta.env.VITE_API}/subjects`);
   const subjects = data2?.rows;
   const selectedSubjects = data?.subjects.map(
     (subject) => subject["student_subject"].subjectId
