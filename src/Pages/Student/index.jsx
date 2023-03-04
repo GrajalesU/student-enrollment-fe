@@ -5,10 +5,9 @@ import SubjectElement from "../../components/SubjectElement";
 import Error404 from "../../components/Error404";
 
 export default function Student() {
-
   const { id } = useParams();
   const { data, error, loading } = useFetch(
-    `http://localhost:5000/students/${id}`
+    `${import.meta.env.VITE_API}/students/${id}`
   );
   if (error)
     return (

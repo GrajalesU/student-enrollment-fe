@@ -7,8 +7,8 @@ import { useNavigate } from "react-router-dom";
 export default function Me() {
   const { user } = useAuth();
   const navigate = useNavigate();
-  const { data } = useFetch(`http://localhost:5000/students/${user}`);
-  const { data: data2 } = useFetch("http://localhost:5000/subjects");
+  const { data } = useFetch(`${import.meta.env.VITE_API}/students/${user}`);
+  const { data: data2 } = useFetch("${import.meta.env.VITE_API}/subjects");
   const subjects = data2?.rows;
   const selectedSubjects = data?.subjects.map(
     (subject) => subject["student_subject"].subjectId
@@ -22,7 +22,7 @@ export default function Me() {
       return !prevSubjects.includes(elemento);
     });
 
-    fetch("http://localhost:5000/enroll", {
+    fetch("${import.meta.env.VITE_API}/enroll", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

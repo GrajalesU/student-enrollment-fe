@@ -8,7 +8,7 @@ export default function Login() {
   const navigate = useNavigate();
   const handleLogin = (e) => {
     e.preventDefault();
-    fetch("http://localhost:5000/students", {
+    fetch(`${import.meta.env.VITE_API}/students`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

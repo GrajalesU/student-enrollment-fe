@@ -3,7 +3,7 @@ import SubjectElement from "../../components/SubjectElement";
 import useFetch from "../../hooks/useFetch";
 
 export default function Subjects() {
-  const { data } = useFetch("http://localhost:5000/subjects");
+  const { data } = useFetch(`${import.meta.env.VITE_API}/subjects`);
   const subjects = data?.rows;
 
   if (data)
