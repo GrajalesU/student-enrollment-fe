@@ -1,6 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
+import useAuth from "../../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
+  const [name, setName] = useState("");
+  const { signIn } = useAuth();
+  const navigate = useNavigate();
+  const handleLogin = (e) => {
+    e.preventDefault();
+    fetch("http://localhost:5000/students", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ name }),
+    })
+      .then((response) => response.json())
+      .then(({ id }) =>
+        signIn(id, () => {
+          navigate("/me");
+        })
+      )
+      .catch((error) => {
+        console.error("Ocurrió un error en la petición", error);
+      });
+  };
   return (
     <section className="bg-white">
       <div className="lg:grid lg:min-h-screen lg:grid-cols-12">
@@ -26,10 +50,13 @@ export default function Login() {
               Animate !
             </p>
 
-            <form action="#" className="mt-8 grid grid-cols-6 gap-6">
+            <form
+              onSubmit={handleLogin}
+              className="mt-8 grid grid-cols-6 gap-6"
+            >
               <div className="col-span-6">
                 <label
-                  for="Name"
+                  htmlFor="Name"
                   className="block text-sm font-medium text-gray-700"
                 >
                   Nombre
@@ -39,6 +66,10 @@ export default function Login() {
                   type="text"
                   id="Name"
                   name="Name"
+                  value={name}
+                  onChange={(e) => {
+                    setName(e.target.value);
+                  }}
                   className="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
                 />
               </div>
