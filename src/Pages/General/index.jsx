@@ -2,8 +2,8 @@ import React from "react";
 import GeneralItem from "./GeneralItem";
 import PeopleIcon from "../../components/Icons/People";
 import BooksIcon from "../../components/Icons/Books";
-import TeachersIcons from "../../components/Icons/Teachers";
 import PersonIcon from "../../components/Icons/Person";
+import { Link } from "react-router-dom";
 
 export default function General() {
   return (
@@ -20,12 +20,12 @@ export default function General() {
               ver y con qué profesores.
             </p>
 
-            <a
-              href="#"
+            <Link
+              to="/login"
               className="mt-8 inline-block rounded bg-indigo-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-indigo-700 focus:outline-none focus:ring focus:ring-yellow-400"
             >
               Inscríbete ahora
-            </a>
+            </Link>
           </div>
 
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-2">
